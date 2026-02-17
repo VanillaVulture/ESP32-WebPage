@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ESP32 Core Wi-Fi Toolkit</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">ESP32 Core Board</p>
+          <h1>Wi-Fi Recon Dashboard</h1>
+          <p class="subtitle">
+            Quick scan of nearby access points, obvious weak configurations,
+            and stub actions for later firmware integration.
+          </p>
+        </div>
+        <div class="hero-actions">
+          <button id="scanBtn" class="btn btn-primary">Scan Nearby APs</button>
+          <button id="exportBtn" class="btn">Export Scan JSON</button>
+        </div>
+      </header>
+
+      <section class="stats-grid" id="statsGrid">
+        <article class="card stat"><h2>Total APs</h2><p id="totalAps">0</p></article>
+        <article class="card stat"><h2>Open Networks</h2><p id="openAps">0</p></article>
+        <article class="card stat"><h2>Weak Security</h2><p id="weakAps">0</p></article>
+        <article class="card stat"><h2>Strong Security</h2><p id="strongAps">0</p></article>
+      </section>
+
+      <section class="card tools">
+        <h2>Quick Tools</h2>
+        <div class="tool-buttons">
+          <button id="sortSignalBtn" class="btn">Sort by Signal</button>
+          <button id="channelCheckBtn" class="btn">Channel Check</button>
+          <button id="copySummaryBtn" class="btn">Copy Vulnerability Summary</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Nearby Access Points</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>SSID</th>
+                <th>Signal</th>
+                <th>Channel</th>
+                <th>Security</th>
+                <th>Risk</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="apTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card terminal">
+        <h2>Device Log</h2>
+        <pre id="logOutput">[boot] ESP32 dashboard ready.
+Press "Scan Nearby APs" to collect data.</pre>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
